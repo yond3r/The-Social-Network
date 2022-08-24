@@ -67,7 +67,7 @@ updateThought ({params, body}, res) {
         new: true,
         runValidators: true,
     })
-        .then(dbThoughtData) => {
+        .then((dbThoughtData) => {
             if(!dbThoughtData) {
                 res.status(404).json({msg: "No id is associated with this thought!"});
                     return;

@@ -38,8 +38,8 @@ const userSchema = new Schema(
     }
 );
 
-userSchema.virtual("urPalsCount").get(function (){
-    return this.urPals.length;
+userSchema.virtual("friendCount").get(function (){
+    return this.friends.length;
 });
 
 const User = model("User", userSchema);

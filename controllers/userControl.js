@@ -5,17 +5,17 @@ const userController = {
     getAllUser(req, res){
         User.find({})
         .populate({
-            path: "urPals",
+            path: "friends",
             select: "-__v",
     })
     .select("-__v")
     .sort({_id: -1})
     .then((dbUserData) => res.json(dbUserData))
-    .catch((err) =>{
+    .catch((err) => {
         console.log(err)
         res.sendStatus(400)
     })
-}},
+},
 
 //one user gathered by their specific id
 getUserById({params}, res) {
@@ -25,7 +25,7 @@ getUserById({params}, res) {
             select: "-__v",
         })
         .populate({
-            path: "urPals",
+            path: "friends",
             select: "-__v",
         })
         .select("-__v")
@@ -67,7 +67,7 @@ deleteUser({params}, res) {
             return Thought.deleteMany({_id: {$in: dbUserData.thoughts}});
         })
             .then(()=> {
-                res.json({"User and all of their thoughts have been deleted! Good luck & have a safe life!(-:"});
+                res.json({msg:"User and all of their thoughts have been deleted! Good luck & have a safe life!" });
             })
             .catch((err) = res.json(err));
 },
