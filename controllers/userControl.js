@@ -41,6 +41,13 @@ getUserById({params}, res) {
                     res.sendStatus(400)
             })
         },
+
+//create user
+createUser({body}, res) {
+    User.create(body)
+        .then((dbUserData) => res.json(dbUserData))
+        .catch((err)=> res.json(err))
+},
 //update the particular user by their id
 updateUser({params, body}, res) {
     User.findOneAndUpdate({ _id: params.id}, body, {
