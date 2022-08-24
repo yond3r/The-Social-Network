@@ -66,12 +66,12 @@ updateUser({params, body}, res) {
 
 //delete
 deleteUser({params}, res) {
-    User.findOneAndDelete({_id: params.id})
+    User.findOneAndDelete({ _id: params.id})
     .then((dbUserData) => {
         if(!dbUserData) {
            return res.status(404).json({msg: "No user is associated w/ this id!"});
         }
-            return Thought.deleteMany({_id: {$in: dbUserData.thoughts}});
+            return Thought.deleteMany({ _id: { $in: dbUserData.thoughts }});
         })
             .then(()=> {
                 res.json({msg:"User and all of their thoughts have been deleted! Good luck & have a safe life!" });
@@ -80,7 +80,7 @@ deleteUser({params}, res) {
 },
 
 //adding ur pals!! wow !!
-addUrPals({params}, res){
+addfriends({params}, res){
     User.findOneAndUpdate(
         {_id: params.userId},
         { $addToSet: 
@@ -100,7 +100,7 @@ addUrPals({params}, res){
 },
 
 //delete ur pals !! oh no !!
-removeUrPals({params}, res) {
+removefriends({params}, res) {
     User.findOneAndUpdate(
         {_id: params.userId},
         { $pull: 

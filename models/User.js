@@ -13,7 +13,7 @@ const userSchema = new Schema(
             type: String,
             unique: true,
             required: "Username is needed and required",
-            match: ["^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"],
+            match: [/.+@.+\..+/],
         },
 
         thoughts: [
@@ -23,7 +23,7 @@ const userSchema = new Schema(
             },
         ],
 
-        urPals: [
+        friends: [
             {
                 type: Schema.Types.ObjectId,
                 ref: "User",
