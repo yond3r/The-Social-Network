@@ -22,6 +22,10 @@
  ## video
 
 
+
+https://user-images.githubusercontent.com/106720762/186434682-63839c32-ffdc-400a-8a49-e926d9ecff8b.mp4
+
+
  
  ## description 
 - This social media network allows the user to share their thoughts, reactions, add/remove friends, all within one product. Like facebook and twitter, but a looooot more simple. (and honestly? it is probably better that way.)
