@@ -59,17 +59,6 @@ module.exports = (
 const dateObj = new Date(timestamp);
 const formattedMonth = months[dateObj.getMonth()];
 
-// if (dateSuffix) {
-//     dayOfMonth = addDataSuffix(dateObj.getDate());
-//         let hour =
-//             dateObj.getHours() > 12
-//                 ? Math.floor(dateObj.getHours() - 12)
-//                 : dateObj.getHours();
-
-//         //hour is 0, makes it 12
-//         if (hour === 0) {
-//             hour = 12;
-//         }
 
 const dayOfMonth = dateSuffix
     ? addDataSuffix(dateObj.getDate())
