@@ -76,7 +76,7 @@ deleteUser({params}, res) {
             .then(()=> {
                 res.json({msg:"User and all of their thoughts have been deleted! Good luck & have a safe life!" });
             })
-            .catch((err) = res.json(err));
+            .catch((err) => res.json(err));
 },
 
 //adding ur pals!! wow !!
@@ -84,7 +84,7 @@ addfriends({params}, res){
     User.findOneAndUpdate(
         {_id: params.userId},
         { $addToSet: 
-            {friends: params.friendId}
+            {friends: params.friendsId}
         },
         {new: true},
         {runValidators: true}
@@ -104,7 +104,7 @@ removefriends({params}, res) {
     User.findOneAndUpdate(
         {_id: params.userId},
         { $pull: 
-            {friends: params.friendId}
+            {friends: params.friendsId}
         },
         {new: true},
     )
